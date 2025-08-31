@@ -1,7 +1,12 @@
-//import { somePackage } from "./somefile.js";
+import { Game } from "./game/Game";
 
-async function main() {
-  console.log("hello world");
-}
+// Initialize game
+window.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
+  new Game(canvas);
 
-main();
+  // Lock pointer for FPS controls
+  canvas.addEventListener("click", () => {
+    canvas.requestPointerLock();
+  });
+});
